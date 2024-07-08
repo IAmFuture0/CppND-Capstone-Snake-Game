@@ -4,9 +4,11 @@ This is a repo for the Capstone project in the [Udacity C++ Nanodegree Program](
 
 <img src="snakebot.gif"/>
 
-The Capstone Project gives you a chance to integrate what you've learned throughout this program. This project will become an important part of your portfolio to share with current and future colleagues and employers.
+The idea of added features are from the previous project 'Build An OpenStreetMap Route Planner' and 'Concurrent Traffic Simulation'.
 
-In this project, you can build your own C++ application or extend this Snake game, following the principles you have learned throughout this Nanodegree Program. This project will demonstrate that you can independently create applications using a wide range of C++ features.
+I kept the code for the player-controlled snake in the program, but I commented it out. If you want to compete with the snakebot, feel free to remove the comment.
+
+Additionally, you can build your own C++ application or extend the Snake game. This project will demonstrate that you can independently create applications using a wide range of C++ features.
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
