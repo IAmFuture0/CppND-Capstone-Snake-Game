@@ -19,10 +19,10 @@ The following diagram is the schematic of my program. The colored blocks indicat
 ### Loops, Functions, I/O - meet at least 2 criteria
 - [x] The project demonstrates an understanding of C++ functions and control structures.
   * snakebot.h, snakebot.cpp, intersection.h, and intersection.cpp files demonstrate the well-structured code and a variety of control structures.
-- [] The project reads data from a file and process the data, or the program writes data to a file.
-  * 
-- [] The project accepts user input and processes the input.
-  * 
+- [ ] The project reads data from a file and process the data, or the program writes data to a file.
+  * NotYet
+- [ ] The project accepts user input and processes the input.
+  * NotYet
 - [x] The project uses data structures and immutable variables.
   * The **delta** variable (in class Astar in *snakebot.h*) and **intersectionLocation** variable (in class Intersection in *Intersection.h*) are both vector with const int element.
   
