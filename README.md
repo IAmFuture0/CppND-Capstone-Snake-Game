@@ -8,12 +8,14 @@ This is a repo for the Capstone project in the [Udacity C++ Nanodegree Program](
 
 The idea of added features are from the previous project **Build An OpenStreetMap Route Planner** and **Concurrent Traffic Simulation**. The snakebot follow the gray route planned by A* algorithm, and will stop immediately upon detecting a red light at an the intersection. It will move again once the light turns green.
 
-By the way, I kept the code for the player-controlled snake in the program, but I commented it out. If you want to compete with the snakebot, feel free to remove the comment.
+By the way, I kept the code for the player-controlled snake in the program, but I commented it out. If you want to compete with the snakebot, feel free to remove the comments.
 
-Additionally, you can build your own C++ application or extend the Snake game. This project will demonstrate that you can independently create applications using a wide range of C++ features.
+Additionally, you can build your own C++ application or extend the work, for example replacing the A* search algorithm with AI approach . This project will demonstrate that you can independently create applications using a wide range of C++ features.
 
 The following diagram is the schematic of my program. The colored blocks indicate the changes I made: light blue for small changes and dark blue for the main changes where I implemented the new features.
 <img src="SnakeGame_ProgramSchmetic.png"/>
+
+## Rubrics 
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
