@@ -10,6 +10,9 @@ By the way, I kept the code for the player-controlled snake in the program, but 
 
 Additionally, you can build your own C++ application or extend the Snake game. This project will demonstrate that you can independently create applications using a wide range of C++ features.
 
+The following diagram is the schematic of my program. The colored blocks indicate the changes I made: light blue for small changes and dark blue for the main changes where I implemented the new features.
+<img src="SnakeGame_ProgramSchmetic.png"/>
+
 ## Dependencies for Running Locally
 * cmake >= 3.7
   * All OSes: [click here for installation instructions](https://cmake.org/install/)
