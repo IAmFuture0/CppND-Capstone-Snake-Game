@@ -2,7 +2,7 @@
 
 This is a repo for the Capstone project in the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213) with snakebot controlled by the computer using the A* search algorithm. The code for this repo was inspired by [this](https://codereview.stackexchange.com/questions/212296/snake-game-in-c-with-sdl) excellent StackOverflow post and set of responses.
 
-<img src="snakebot.gif width="250" height="250""/>
+<img src="snakebot.gif" width="250" height="250"/>
 
 The idea of added features are from the previous project **Build An OpenStreetMap Route Planner** and **Concurrent Traffic Simulation**. The snakebot follow the gray route planned by A* algorithm, and will stop immediately upon detecting a red light at an the intersection. It will move again once the light turns green.
 
