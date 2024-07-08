@@ -15,7 +15,11 @@ Additionally, you can build your own C++ application or extend the work, for exa
 The following diagram is the schematic of my program. The colored blocks indicate the changes I made: light blue for small changes and dark blue for the main changes where I implemented the new features.
 <img src="SnakeGame_ProgramSchmetic.png"/>
 
-## Rubrics 
+## Criteria Fullfillment
+### Loops, Functions, I/O
+### Object Oriented Programming
+### Memory Management
+### Concurrency
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
