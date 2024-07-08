@@ -27,26 +27,26 @@ The following diagram is the schematic of my program. The colored blocks indicat
   * The **delta** variable (in class Astar in *snakebot.h*) and **intersectionLocation** variable (in class Intersection in *Intersection.h*) are both vector with const int element.
   
 ### Object Oriented Programming - meet at least 3 criteria
-* One or more classes are added to the project with appropriate access specifiers for class members.
-* Class constructors utilize member initialization lists.
-* Classes abstract implementation details from their interfaces.
-* Overloaded functions allow the same function to operate on different parameters.
-* Classes follow an appropriate inheritance hierarchy with virtual and override functions.
-* Templates generalize functions or classes in the project.
+- [ ] One or more classes are added to the project with appropriate access specifiers for class members.
+- [ ] Class constructors utilize member initialization lists.
+- [ ] Classes abstract implementation details from their interfaces.
+- [ ] Overloaded functions allow the same function to operate on different parameters.
+- [ ] Classes follow an appropriate inheritance hierarchy with virtual and override functions.
+- [ ] Templates generalize functions or classes in the project.
 
 ### Memory Management - meet at least 3 criteria
-* The project makes use of references in function declarations.
-* The project uses destructors appropriately.
-* The project uses scope / Resource Acquisition Is Initialization (RAII) where appropriate.
-* The project follows the Rule of 5.
-* The project uses move semantics to move data instead of copying it, where possible.
-* The project uses smart pointers instead of raw pointers.
+- [ ] The project makes use of references in function declarations.
+- [ ] The project uses destructors appropriately.
+- [ ] The project uses scope / Resource Acquisition Is Initialization (RAII) where appropriate.
+- [ ] The project follows the Rule of 5.
+- [ ] The project uses move semantics to move data instead of copying it, where possible.
+- [ ] The project uses smart pointers instead of raw pointers.
 
 ### Concurrency - meet at least 2 criteria
-* The project uses multithreading.
-* A promise and future is used in the project.
-* A mutex or lock is used in the project.
-* A condition variable is used in the project.
+- [ ] The project uses multithreading.
+- [ ] A promise and future is used in the project.
+- [ ] A mutex or lock is used in the project.
+- [ ] A condition variable is used in the project.
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
