@@ -16,10 +16,10 @@ The following diagram is the schematic of my program. The colored blocks indicat
 <img src="SnakeGame_ProgramSchmetic.png"/>
 
 ## Criteria Fullfillment
-### Loops, Functions, I/O
-### Object Oriented Programming
-### Memory Management
-### Concurrency
+### Loops, Functions, I/O - meet at least 2 criteria
+### Object Oriented Programming - meet at least 3 criteria
+### Memory Management - meet at least 3 criteria
+### Concurrency - meet at least 2 criteria
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
