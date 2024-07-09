@@ -42,15 +42,20 @@ The following diagram is the schematic of my program. The colored blocks indicat
   * The setters and operators in Node class in *snakebot.h* use pass-by-reference method.
 - [x] The project uses destructors appropriately.
   * The destructor of Astar in *snakebot.cpp* delete the dynamically allocated memory appropriately.
-- [ ] The project uses scope / Resource Acquisition Is Initialization (RAII) where appropriate.
+- [x] The project uses scope / Resource Acquisition Is Initialization (RAII) where appropriate.
+  * Acquiring resources for **nodeGrid** in Astar constructor and Releasing the resources in destructor in *snakebot.cpp*.
+  * Setting thread barriers in destructor of class *Snakebot* and *Intersection*.
 - [ ] The project follows the Rule of 5.
-- [ ] The project uses move semantics to move data instead of copying it, where possible.
-- [ ] The project uses smart pointers instead of raw pointers.
-
+- [x] The project uses move semantics to move data instead of copying it, where possible.
+  * The move semantics is used when the snakebot plan new route after finding the food in **Game::Update()** in *game.cpp*.
+- [x] The project uses smart pointers instead of raw pointers.
+  * The unique pointer of astar class is created in the beginning of **Sankebot::PlanRoute(SDL_Point food)** in *snakebot.cpp*.
 ### Concurrency - meet at least 2 criteria
 - [x] The project uses multithreading.
-- [x] A promise and future is used in the project.
-- [ ] A mutex or lock is used in the project.
+  * The multi-threading is implementing in **Snake::simulate()** in *snakebot.cpp* for executing the traffic light and update snakebot in parallel.
+- [ ] A promise and future is used in the project.
+- [x] A mutex or lock is used in the project.
+  * The lock is used in several function in Snakebot class such as **Snakebot::PlanRoute()**, **Snakebot::UpdateDirection()**, **Snakebot::UpdateHead()**, and **Snakebot::UpdateBody** to protect the path data to ensure it is safely written and read.
 - [ ] A condition variable is used in the project.
 
 ## Dependencies for Running Locally
