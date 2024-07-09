@@ -38,8 +38,10 @@ The following diagram is the schematic of my program. The colored blocks indicat
   *  The Node class in *snakebot.h* is declared with a template named T.
 
 ### Memory Management - meet at least 3 criteria
-- [ ] The project makes use of references in function declarations.
-- [ ] The project uses destructors appropriately.
+- [x] The project makes use of references in function declarations.
+  * The setters and operators in Node class in *snakebot.h* use pass-by-reference method.
+- [x] The project uses destructors appropriately.
+  * The destructor of Astar in *snakebot.cpp* delete the dynamically allocated memory appropriately.
 - [ ] The project uses scope / Resource Acquisition Is Initialization (RAII) where appropriate.
 - [ ] The project follows the Rule of 5.
 - [ ] The project uses move semantics to move data instead of copying it, where possible.
