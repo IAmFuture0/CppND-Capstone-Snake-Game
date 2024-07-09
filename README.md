@@ -20,25 +20,22 @@ The following diagram is the schematic of my program. The colored blocks indicat
 - [x] The project demonstrates an understanding of C++ functions and control structures.
   * snakebot.h, snakebot.cpp, intersection.h, and intersection.cpp files demonstrate the well-structured code and a variety of control structures.
 - [ ] The project reads data from a file and process the data, or the program writes data to a file.
-  * ***Not Done Yet***
 - [ ] The project accepts user input and processes the input.
-  * ***Not Done Yet***
 - [x] The project uses data structures and immutable variables.
   * The **delta** variable (in class Astar in *snakebot.h*) and **intersectionLocation** variable (in class intersection in *intersection.h*) are both vector with const int element.
   
 ### Object Oriented Programming - meet at least 3 criteria
 - [x] One or more classes are added to the project with appropriate access specifiers for class members.
   *  The classes in *snakebot.h* and *intersection.h* hold variables and methods, and explicityly specified as public and private.
-- [ ] Class constructors utilize member initialization lists.
-  *  ***Not Done Yet*** "ALL member variables initilized by initializer lists"
-- [ ] Classes abstract implementation details from their interfaces.
-  *  ***Not Done Yet*** "Vogue understanding of abstract implementation"
+- [x] Class constructors utilize member initialization lists.
+  *  The snakebot class in *snakebot.h* and *snakebot.cpp* use the similar way to utilize member initialization list.
+- [x] Classes abstract implementation details from their interfaces.
+  *  The concise **comments** are wrote in the *snakebot.h* and *intersection.cpp*.
 - [ ] Overloaded functions allow the same function to operate on different parameters.
-  *  ***Not Done Yet*** "Define overload member function"
-- [ ] Classes follow an appropriate inheritance hierarchy with virtual and override functions.
-  *  ***Not Done Yet*** "Define virtual function and override function"
-- [ ] Templates generalize functions or classes in the project.
-  *  ***Not Done Yet*** "vague understanding"
+- [x] Classes follow an appropriate inheritance hierarchy with virtual and override functions.
+  *  The **UpdateDirection** is a virtual function defined in *Snake class*, and being overrided in *Snakebot class*.
+- [x] Templates generalize functions or classes in the project.
+  *  The Node class in *snakebot.h* is declared with a template named T.
 
 ### Memory Management - meet at least 3 criteria
 - [ ] The project makes use of references in function declarations.
@@ -49,8 +46,8 @@ The following diagram is the schematic of my program. The colored blocks indicat
 - [ ] The project uses smart pointers instead of raw pointers.
 
 ### Concurrency - meet at least 2 criteria
-- [ ] The project uses multithreading.
-- [ ] A promise and future is used in the project.
+- [x] The project uses multithreading.
+- [x] A promise and future is used in the project.
 - [ ] A mutex or lock is used in the project.
 - [ ] A condition variable is used in the project.
 
