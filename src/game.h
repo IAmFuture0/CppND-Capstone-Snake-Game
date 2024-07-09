@@ -6,7 +6,9 @@
 #include "controller.h"
 #include "renderer.h"
 #include "snake.h"
-
+#include "snakebot.h"
+#include <thread>
+#include "intersection.h"
 class Game {
  public:
   Game(std::size_t grid_width, std::size_t grid_height);
@@ -15,10 +17,11 @@ class Game {
   int GetScore() const;
   int GetSize() const;
 
+  
  private:
   Snake snake;
+  Snakebot snakebot; // define snake_rbt variable in game class
   SDL_Point food;
-
   std::random_device dev;
   std::mt19937 engine;
   std::uniform_int_distribution<int> random_w;

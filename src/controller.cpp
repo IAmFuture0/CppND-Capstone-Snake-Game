@@ -14,6 +14,7 @@ void Controller::HandleInput(bool &running, Snake &snake) const {
   while (SDL_PollEvent(&e)) {
     if (e.type == SDL_QUIT) {
       running = false;
+      
     } else if (e.type == SDL_KEYDOWN) {
       switch (e.key.keysym.sym) {
         case SDLK_UP:

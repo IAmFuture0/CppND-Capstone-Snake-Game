@@ -3,6 +3,8 @@
 
 #include <vector>
 #include "SDL.h"
+#include "intersection.h"
+
 
 class Snake {
  public:
@@ -13,7 +15,7 @@ class Snake {
         grid_height(grid_height),
         head_x(grid_width / 2),
         head_y(grid_height / 2) {}
-
+  ~Snake();
   void Update();
 
   void GrowBody();
@@ -27,11 +29,11 @@ class Snake {
   float head_x;
   float head_y;
   std::vector<SDL_Point> body;
+  void UpdateHead();
+  virtual void UpdateDirection(){};
 
  private:
-  void UpdateHead();
   void UpdateBody(SDL_Point &current_cell, SDL_Point &prev_cell);
-
   bool growing{false};
   int grid_width;
   int grid_height;

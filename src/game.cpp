@@ -1,13 +1,16 @@
 #include "game.h"
 #include <iostream>
+#include <thread>
 #include "SDL.h"
 
 Game::Game(std::size_t grid_width, std::size_t grid_height)
     : snake(grid_width, grid_height),
+      snakebot(grid_width, grid_height), // instantiate snake robot
       engine(dev()),
       random_w(0, static_cast<int>(grid_width - 1)),
       random_h(0, static_cast<int>(grid_height - 1)) {
   PlaceFood();
+  snakebot.PlanRoute(food);
 }
 
 void Game::Run(Controller const &controller, Renderer &renderer,
@@ -19,13 +22,16 @@ void Game::Run(Controller const &controller, Renderer &renderer,
   int frame_count = 0;
   bool running = true;
 
+  snakebot.simulate();
+
   while (running) {
+    
     frame_start = SDL_GetTicks();
 
     // Input, Update, Render - the main game loop.
     controller.HandleInput(running, snake);
     Update();
-    renderer.Render(snake, food);
+    renderer.Render(snake, snakebot, food);
 
     frame_end = SDL_GetTicks();
 
@@ -48,6 +54,7 @@ void Game::Run(Controller const &controller, Renderer &renderer,
       SDL_Delay(target_frame_duration - frame_duration);
     }
   }
+  return;
 }
 
 void Game::PlaceFood() {
@@ -66,21 +73,35 @@ void Game::PlaceFood() {
 }
 
 void Game::Update() {
+  /*
   if (!snake.alive) return;
-
   snake.Update();
 
-  int new_x = static_cast<int>(snake.head_x);
-  int new_y = static_cast<int>(snake.head_y);
+  int new_snake_x = static_cast<int>(snake.head_x);
+  int new_snake_y = static_cast<int>(snake.head_y);
 
   // Check if there's food over here
-  if (food.x == new_x && food.y == new_y) {
+  if (food.x == new_snake_x && food.y == new_snake_y) {
     score++;
     PlaceFood();
     // Grow snake and increase speed.
     snake.GrowBody();
     snake.speed += 0.02;
+
+    snakebot.PlanRoute(food);
   }
+  */
+
+  int new_snakebot_x = static_cast<int>(snakebot._head_x);
+  int new_snakebot_y = static_cast<int>(snakebot._head_y);
+
+  // Check if there's food over here
+  if(food.x == new_snakebot_x && food.y == new_snakebot_y){
+    PlaceFood();
+    snakebot.GrowBody();
+    snakebot.PlanRoute(std::move(food));
+  }
+
 }
 
 int Game::GetScore() const { return score; }

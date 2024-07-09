@@ -38,7 +38,7 @@ Renderer::~Renderer() {
   SDL_Quit();
 }
 
-void Renderer::Render(Snake const snake, SDL_Point const &food) {
+void Renderer::Render(Snake const &snake, Snakebot const &snakebot, SDL_Point const &food) {
   SDL_Rect block;
   block.w = screen_width / grid_width;
   block.h = screen_height / grid_height;
@@ -46,21 +46,16 @@ void Renderer::Render(Snake const snake, SDL_Point const &food) {
   // Clear screen
   SDL_SetRenderDrawColor(sdl_renderer, 0x1E, 0x1E, 0x1E, 0xFF);
   SDL_RenderClear(sdl_renderer);
-
-  // Render food
-  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xCC, 0x00, 0xFF);
-  block.x = food.x * block.w;
-  block.y = food.y * block.h;
-  SDL_RenderFillRect(sdl_renderer, &block);
-
+  
   // Render snake's body
   SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xFF, 0xFF, 0xFF);
-  for (SDL_Point const &point : snake.body) {
-    block.x = point.x * block.w;
-    block.y = point.y * block.h;
+  for (SDL_Point const &item : snake.body) {
+    block.x = item.x * block.w;
+    block.y = item.y * block.h;
     SDL_RenderFillRect(sdl_renderer, &block);
   }
 
+  /*
   // Render snake's head
   block.x = static_cast<int>(snake.head_x) * block.w;
   block.y = static_cast<int>(snake.head_y) * block.h;
@@ -70,7 +65,53 @@ void Renderer::Render(Snake const snake, SDL_Point const &food) {
     SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
   }
   SDL_RenderFillRect(sdl_renderer, &block);
+  */
 
+  // 20240702 Render path_found
+  SDL_SetRenderDrawColor(sdl_renderer, 0xBA, 0xBA, 0xBA, 0xFF);
+  for(auto point: snakebot.getPath()){
+    block.x = point[0] * block.w;
+    block.y = point[1] * block.h;
+    SDL_RenderFillRect(sdl_renderer, &block);
+  }
+  
+  // Render snakebot's body
+  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+  for (SDL_Point const &point : snakebot.body) {
+    block.x = point.x * block.w;
+    block.y = point.y * block.h;
+    SDL_RenderFillRect(sdl_renderer, &block);
+  }
+
+  // 20240701 Render snakebot's head
+  block.x = static_cast<int>(snakebot._head_x) * block.w;
+  block.y = static_cast<int>(snakebot._head_y) * block.h;
+  if (snake.alive) {
+    SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0x00, 0xFF, 0xFF);
+  } else {
+    SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
+  }
+  SDL_RenderFillRect(sdl_renderer, &block);
+
+  // Render Intersection
+  if(snakebot.intersection.TrafficLightIsGreen()){
+    SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0xFF, 0x00, 0xFF);
+  }else{
+    SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
+  }
+  
+  for(auto location: snakebot.intersection.getLocation()){
+    block.x = location[0] * block.w;
+    block.y = location[1] * block.h;
+    SDL_RenderFillRect(sdl_renderer, &block);
+  }
+
+  // Render food
+  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xCC, 0x00, 0xFF);
+  block.x = food.x * block.w;
+  block.y = food.y * block.h;
+  SDL_RenderFillRect(sdl_renderer, &block);
+ 
   // Update Screen
   SDL_RenderPresent(sdl_renderer);
 }
