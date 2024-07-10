@@ -1,6 +1,4 @@
 #include "intersection.h"
-#include <algorithm>
-
 void Intersection::waitForGreen(){
     while(true){
         std::this_thread::sleep_for(std::chrono::milliseconds(1));
@@ -26,11 +24,11 @@ bool Intersection::TrafficLightIsGreen() const{
     }
 }
 
-void Intersection::cycleThroughPhases(){
+void Intersection::cycleThroughPhases(std::shared_ptr<bool> running){
     std::chrono::time_point<std::chrono::system_clock> lastUpdate;
     int cycleDuration = 1500;
     // *** ISSUE : THIS while loop slow the ending process of the program *** //
-    while(true){
+    while(*running){
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
         
         long timeSinceLastUpdate = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now() - lastUpdate).count();

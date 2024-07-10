@@ -70,10 +70,10 @@ class Snakebot : public Snake{
         enum class Direction { kUp, kDown, kLeft, kRight };
         Snakebot(int grid_width, int grid_height);
         ~Snakebot();
-        void simulate();
+        void simulate(std::shared_ptr<bool> running);
         void PlanRoute(SDL_Point food);
         void StorePath(std::vector<Node<int>*> path_found); 
-        void Update();
+        void Update(std::shared_ptr<bool> running);
         void GrowBody();
 
         std::vector<SDL_Point> body;

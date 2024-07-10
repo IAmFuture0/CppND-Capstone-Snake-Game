@@ -25,7 +25,7 @@ class Intersection{
     // Intersection
     Intersection();
     ~Intersection();
-    void cycleThroughPhases();
+    void cycleThroughPhases(std::shared_ptr<bool> running);
     void addSnakebotToQueue();
     
     std::vector<std::vector<int>> getLocation() const{return intersectionLocation;}

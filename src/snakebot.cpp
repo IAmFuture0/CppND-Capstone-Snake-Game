@@ -20,16 +20,17 @@ Snakebot::~Snakebot(){
 }
 
 // simulate the snakebot and the traffic light at the intersections (multi-threading implementation)
-void Snakebot::simulate(){
-    _snakebotThreads.emplace_back(std::thread(&Snakebot::Update, this));
-    _snakebotThreads.emplace_back(std::thread(&Intersection::cycleThroughPhases, &intersection));
+void Snakebot::simulate(std::shared_ptr<bool> running){
+    _snakebotThreads.emplace_back(std::thread(&Snakebot::Update, this, running));
+    _snakebotThreads.emplace_back(std::thread(&Intersection::cycleThroughPhases, &intersection, running));
 }
 
-void Snakebot::Update(){
+void Snakebot::Update(std::shared_ptr<bool> running){
         std::chrono::time_point<std::chrono::system_clock> lastUpdate;
         int cycleDuration = 100;
+        
         // *** ISSUE : THIS while loop slow the ending process of the program *** //
-        while(true){
+        while(*running){
             std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
             // compute time difference 

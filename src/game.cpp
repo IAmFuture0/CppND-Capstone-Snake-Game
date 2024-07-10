@@ -20,11 +20,12 @@ void Game::Run(Controller const &controller, Renderer &renderer,
   Uint32 frame_end;
   Uint32 frame_duration;
   int frame_count = 0;
-  bool running = true;
+  //bool running = true;
+  std::shared_ptr<bool> running(new bool); // leon 0710
+  *running = true; // leon 0710
+  snakebot.simulate(running);
 
-  snakebot.simulate();
-
-  while (running) {
+  while (*running) {
     
     frame_start = SDL_GetTicks();
 
